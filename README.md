@@ -28,8 +28,8 @@ to build following changes docker build -t consul-backup .
 
 To backup consul-kv simply run
 
-`docker run --rm -d -v /tmp:/tmp consul-backup app -i <CONSUL-URL>:8500 /tmp/backup_consul`
+`docker run --rm -v /tmp:/tmp consul-backup app -i <CONSUL-URL>:8500 /tmp/backup_consul`
 
 To restore consul-kv simply run
 
-`docker run --rm -d -v /tmp:/tmp consul-backup app -i <CONSUL-URL>:8500 --restore /tmp/backup_consul`
+`docker run --rm -v /tmp:/tmp consul-backup app -i <CONSUL-URL>:8500 --restore /tmp/backup_consul`
