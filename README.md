@@ -1,15 +1,13 @@
+# Consul backup
+
 Consul Backup and Restore tool.
 
 This will use consul-api (Go library) to recursively backup and restore all your
 key/value pairs.
 
-You need to set up your Go environment and "go get github.com/hashicorp/consul/api"
-and "go get github.com/docopt/docopt-go"
 
-a "go build" will generate executable named "consul-backup"
+# Usage:
 
-#
-Usage:
   consul-backup [-i IP:PORT] [-t TOKEN] [--aclbackup] [--aclbackupfile ACLBACKUPFILE] [--restore] <filename>
   consul-backup -h | --help
   consul-backup --version
@@ -23,16 +21,21 @@ Options:
   -b, --aclbackupfile=ACLBACKUPFILE  ACL Backup Filename [default: acl.bkp].
   -r, --restore                      Activate restore mode
 
--h --help     Show this screen.
---version     Show version.
--i, --address=IP:PORT  The HTTP endpoint of Consul [default: 127.0.0.1:8500].
--r, --restore     Activate restore mode
+# Development
 
-Dockerized Version
-==================
+You need to set up your Go environment and "go get github.com/hashicorp/consul/api"
+and "go get github.com/docopt/docopt-go"
+
+a "go build" will generate executable named "consul-backup"
+
+# Docker image
+
 This app is Dockerized.
 
-to build following changes docker build -t consul-backup .
+To build image
+```
+docker build -t consul-backup .
+```
 
 To backup consul-kv simply run
 
@@ -41,4 +44,3 @@ To backup consul-kv simply run
 To restore consul-kv simply run
 
 `docker run --rm -v /tmp:/tmp consul-backup app -i <CONSUL-URL>:8500 --restore /tmp/backup_consul`
-
