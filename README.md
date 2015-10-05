@@ -22,3 +22,23 @@ Options:
   -a, --aclbackup                    Backup ACLs, does nothing in restore mode. ACL restore not available at this time.
   -b, --aclbackupfile=ACLBACKUPFILE  ACL Backup Filename [default: acl.bkp].
   -r, --restore                      Activate restore mode
+
+-h --help     Show this screen.
+--version     Show version.
+-i, --address=IP:PORT  The HTTP endpoint of Consul [default: 127.0.0.1:8500].
+-r, --restore     Activate restore mode
+
+Dockerized Version
+==================
+This app is Dockerized.
+
+to build following changes docker build -t consul-backup .
+
+To backup consul-kv simply run
+
+`docker run --rm -v /tmp:/tmp consul-backup app -i <CONSUL-URL>:8500 /tmp/backup_consul`
+
+To restore consul-kv simply run
+
+`docker run --rm -v /tmp:/tmp consul-backup app -i <CONSUL-URL>:8500 --restore /tmp/backup_consul`
+
